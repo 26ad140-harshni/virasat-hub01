@@ -1,0 +1,406 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cinzel", Georgia, serif;
+  --font-serif: "Lora", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Exact 5-Color Palette Tokens */
+  --color-ivory: #F4EDE1;
+  --color-ivory-bright: #FAF6EE;
+  --color-champagne: #DCC8AD;
+  --color-french-blue: #7993AC;
+  --color-gold: #B58A45;
+  --color-gold-deep: #8F6B2F;
+  --color-navy: #22324B;
+  --color-taupe-ink: #534D41;
+}
+
+/* ==========================================================================
+   Global Light & Dark Mode Palette Tokens (Champagne, Ivory, French Blue, Gold, Navy)
+   ========================================================================== */
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
+  --vh-canvas: #F4EDE1;
+  --vh-surface: #FAF6EE;
+  --vh-surface-alt: #EFE4D3;
+  --vh-champagne: #DCC8AD;
+  --vh-champagne-soft: rgba(220, 200, 173, 0.45);
+  --vh-french-blue: #7993AC;
+  --vh-french-blue-soft: rgba(121, 147, 172, 0.18);
+  --vh-gold: #B58A45;
+  --vh-gold-ink: #8F6B2F;
+  --vh-navy: #22324B;
+  --vh-navy-deep: #182438;
+  --vh-ink: #22324B;
+  --vh-ink-muted: #534D41;
+  --vh-blue-ink: #4A6580;
+  --vh-border: #DCC8AD;
+  --vh-border-strong: rgba(181, 138, 69, 0.5);
+  --vh-input-bg: #FAF6EE;
+  --vh-input-alt: #F4EDE1;
+  --vh-btn-primary-bg: #22324B;
+  --vh-btn-primary-text: #F4EDE1;
+  --vh-btn-primary-hover-bg: #B58A45;
+  --vh-btn-primary-hover-text: #FAF6EE;
+  --vh-header-bg: linear-gradient(90deg, rgba(250, 246, 238, 0.96) 0%, rgba(244, 237, 225, 0.96) 56%, rgba(220, 200, 173, 0.72) 82%, rgba(121, 147, 172, 0.25) 100%);
+  --vh-ribbon-bg: linear-gradient(90deg, rgba(220, 200, 173, 0.55) 0%, #F4EDE1 50%, rgba(121, 147, 172, 0.26) 100%);
+  --vh-hero-bg: linear-gradient(135deg, #FAF6EE 0%, #F4EDE1 52%, rgba(220, 200, 173, 0.72) 82%, rgba(121, 147, 172, 0.24) 100%);
+  --vh-footer-bg: #22324B;
+  --vh-footer-text: #F4EDE1;
+  --vh-footer-muted: #DCC8AD;
+  --vh-plate-bg: rgba(220, 200, 173, 0.5);
+  --vh-row-hover: rgba(220, 200, 173, 0.38);
+  --vh-map-bg: #F4EDE1;
+  --vh-popup-bg: #FAF6EE;
+  --vh-popup-text: #22324B;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --vh-canvas: #162235;
+  --vh-surface: #22324B;
+  --vh-surface-alt: #2B3E5C;
+  --vh-champagne: #324768;
+  --vh-champagne-soft: rgba(121, 147, 172, 0.20);
+  --vh-french-blue: #7993AC;
+  --vh-french-blue-soft: rgba(121, 147, 172, 0.26);
+  --vh-gold: #B58A45;
+  --vh-gold-ink: #DCC8AD;
+  --vh-navy: #121C2C;
+  --vh-navy-deep: #0E1623;
+  --vh-ink: #F4EDE1;
+  --vh-ink-muted: #DCC8AD;
+  --vh-blue-ink: #A3BBD1;
+  --vh-border: rgba(121, 147, 172, 0.38);
+  --vh-border-strong: rgba(181, 138, 69, 0.65);
+  --vh-input-bg: #18253A;
+  --vh-input-alt: #1D2C44;
+  --vh-btn-primary-bg: #B58A45;
+  --vh-btn-primary-text: #162235;
+  --vh-btn-primary-hover-bg: #DCC8AD;
+  --vh-btn-primary-hover-text: #162235;
+  --vh-header-bg: linear-gradient(90deg, rgba(22, 34, 53, 0.97) 0%, rgba(34, 50, 75, 0.96) 62%, rgba(50, 71, 104, 0.92) 100%);
+  --vh-ribbon-bg: linear-gradient(90deg, rgba(34, 50, 75, 0.94) 0%, rgba(43, 62, 92, 0.88) 55%, rgba(121, 147, 172, 0.30) 100%);
+  --vh-hero-bg: linear-gradient(135deg, #162235 0%, #22324B 54%, #2C4160 84%, rgba(181, 138, 69, 0.20) 100%);
+  --vh-footer-bg: #101928;
+  --vh-footer-text: #F4EDE1;
+  --vh-footer-muted: #DCC8AD;
+  --vh-plate-bg: #18253A;
+  --vh-row-hover: rgba(121, 147, 172, 0.16);
+  --vh-map-bg: #162235;
+  --vh-popup-bg: #22324B;
+  --vh-popup-text: #F4EDE1;
+}
+
+/* ==========================================================================
+   Research Workspace & Chatbot 4-Color Swatch Themes
+   ========================================================================== */
+.royal-theme-oxblood {
+  /* Ivory & Gold */
+  --royal-primary: #22324B;
+  --royal-primary-hover: #182438;
+  --royal-primary-ink: #F4EDE1;
+  --royal-secondary: #B58A45;
+  --royal-accent: #8F6B2F;
+  --royal-header-bg: linear-gradient(135deg, #22324B 0%, #30425F 58%, #B58A45 135%);
+  --royal-header-text: #F4EDE1;
+  --royal-header-subtext: #DCC8AD;
+  --royal-canvas: #F4EDE1;
+  --royal-surface: #FAF6EE;
+  --royal-surface-alt: #EAE0D0;
+  --royal-border: rgba(181, 138, 69, 0.42);
+  --royal-border-strong: #B58A45;
+  --royal-text: #22324B;
+  --royal-text-muted: #534D41;
+  --royal-user-bubble: #22324B;
+  --royal-user-bubble-text: #F4EDE1;
+  --royal-highlight-soft: rgba(220, 200, 173, 0.45);
+}
+
+.royal-theme-forest {
+  /* Champagne & Gold */
+  --royal-primary: #8F6B2F;
+  --royal-primary-hover: #755622;
+  --royal-primary-ink: #FAF6EE;
+  --royal-secondary: #22324B;
+  --royal-accent: #B58A45;
+  --royal-header-bg: linear-gradient(135deg, #B58A45 0%, #9E7838 55%, #22324B 130%);
+  --royal-header-text: #FAF6EE;
+  --royal-header-subtext: #F4EDE1;
+  --royal-canvas: #EDE2D1;
+  --royal-surface: #F4EDE1;
+  --royal-surface-alt: #DCC8AD;
+  --royal-border: rgba(143, 107, 47, 0.45);
+  --royal-border-strong: #8F6B2F;
+  --royal-text: #22324B;
+  --royal-text-muted: #534D41;
+  --royal-user-bubble: #B58A45;
+  --royal-user-bubble-text: #FAF6EE;
+  --royal-highlight-soft: rgba(181, 138, 69, 0.16);
+}
+
+.royal-theme-peacock {
+  /* French Blue & Ivory */
+  --royal-primary: #22324B;
+  --royal-primary-hover: #182438;
+  --royal-primary-ink: #F4EDE1;
+  --royal-secondary: #7993AC;
+  --royal-accent: #4A6580;
+  --royal-header-bg: linear-gradient(135deg, #5E7994 0%, #7993AC 55%, #22324B 120%);
+  --royal-header-text: #FAF6EE;
+  --royal-header-subtext: #F4EDE1;
+  --royal-canvas: #E9EFF5;
+  --royal-surface: #FAF6EE;
+  --royal-surface-alt: #DCE4EC;
+  --royal-border: rgba(121, 147, 172, 0.52);
+  --royal-border-strong: #7993AC;
+  --royal-text: #22324B;
+  --royal-text-muted: #534D41;
+  --royal-user-bubble: #5E7994;
+  --royal-user-bubble-text: #FAF6EE;
+  --royal-highlight-soft: rgba(121, 147, 172, 0.2);
+}
+
+.royal-theme-navy {
+  /* Deep Navy & Gold Contrast */
+  --royal-primary: #B58A45;
+  --royal-primary-hover: #DCC8AD;
+  --royal-primary-ink: #162235;
+  --royal-secondary: #7993AC;
+  --royal-accent: #DCC8AD;
+  --royal-header-bg: linear-gradient(135deg, #162235 0%, #22324B 60%, #314463 100%);
+  --royal-header-text: #F4EDE1;
+  --royal-header-subtext: #DCC8AD;
+  --royal-canvas: #1A273D;
+  --royal-surface: #22324B;
+  --royal-surface-alt: #2B3E5C;
+  --royal-border: rgba(121, 147, 172, 0.42);
+  --royal-border-strong: #B58A45;
+  --royal-text: #F4EDE1;
+  --royal-text-muted: #DCC8AD;
+  --royal-user-bubble: #DCC8AD;
+  --royal-user-bubble-text: #162235;
+  --royal-highlight-soft: rgba(181, 138, 69, 0.22);
+}
+
+.royal-workspace-header {
+  background: var(--royal-header-bg);
+  color: var(--royal-header-text);
+  border-bottom: 1px solid var(--royal-border);
+}
+
+.royal-workspace-surface {
+  background-color: var(--royal-surface);
+  border-color: var(--royal-border);
+  color: var(--royal-text);
+}
+
+.royal-workspace-alt {
+  background-color: var(--royal-surface-alt);
+  border-color: var(--royal-border);
+  color: var(--royal-text);
+}
+
+.royal-btn-primary {
+  background-color: var(--royal-primary);
+  color: var(--royal-primary-ink);
+  font-weight: 600;
+}
+
+.royal-btn-primary:hover {
+  background-color: var(--royal-primary-hover);
+}
+
+.royal-btn-secondary {
+  background-color: var(--royal-secondary);
+  color: #FAF6EE;
+  border: 1px solid var(--royal-border);
+}
+
+.royal-text-primary {
+  color: var(--royal-primary);
+}
+
+.royal-text-secondary {
+  color: var(--royal-accent);
+}
+
+.royal-text-accent {
+  color: var(--royal-accent);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-serif);
+    background-color: var(--vh-canvas);
+    color: var(--vh-ink);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Light Mode Backgrounds: Ivory, Champagne, Gold + French Blue washes */
+.archival-paper {
+  background-color: var(--vh-canvas);
+  background-image:
+    radial-gradient(circle at 12% 14%, rgba(220, 200, 173, 0.72) 0%, transparent 50%),
+    radial-gradient(circle at 88% 16%, rgba(181, 138, 69, 0.18) 0%, transparent 48%),
+    radial-gradient(circle at 80% 85%, rgba(121, 147, 172, 0.24) 0%, transparent 50%),
+    radial-gradient(rgba(181, 138, 69, 0.11) 1px, transparent 0),
+    linear-gradient(165deg, #FAF6EE 0%, #F4EDE1 52%, #E8EEF3 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 26px 26px, 100% 100%;
+  background-attachment: fixed;
+}
+
+.royal-page-home {
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(220, 200, 173, 0.78) 0%, transparent 48%),
+    radial-gradient(circle at 90% 14%, rgba(181, 138, 69, 0.20) 0%, transparent 48%),
+    radial-gradient(circle at 82% 86%, rgba(121, 147, 172, 0.26) 0%, transparent 50%),
+    radial-gradient(rgba(181, 138, 69, 0.11) 1px, transparent 0),
+    linear-gradient(165deg, #FAF6EE 0%, #F4EDE1 55%, #EADBC7 100%);
+}
+
+.royal-page-archive,
+.royal-page-entry {
+  background-image:
+    radial-gradient(circle at 14% 12%, rgba(220, 200, 173, 0.65) 0%, transparent 50%),
+    radial-gradient(circle at 88% 18%, rgba(121, 147, 172, 0.24) 0%, transparent 50%),
+    radial-gradient(circle at 48% 84%, rgba(181, 138, 69, 0.16) 0%, transparent 52%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(165deg, #FAF6EE 0%, #F4EDE1 55%, #E8EDF2 100%);
+}
+
+.royal-page-dynasties {
+  background-image:
+    radial-gradient(circle at 12% 14%, rgba(181, 138, 69, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 86% 20%, rgba(220, 200, 173, 0.75) 0%, transparent 52%),
+    radial-gradient(circle at 50% 86%, rgba(121, 147, 172, 0.22) 0%, transparent 52%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(160deg, #F4EDE1 0%, #EFE2CE 54%, #E7D6BE 100%);
+}
+
+.royal-page-timemap {
+  background-image:
+    radial-gradient(circle at 14% 14%, rgba(121, 147, 172, 0.28) 0%, transparent 52%),
+    radial-gradient(circle at 88% 16%, rgba(220, 200, 173, 0.68) 0%, transparent 50%),
+    radial-gradient(circle at 50% 88%, rgba(181, 138, 69, 0.15) 0%, transparent 50%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(160deg, #FAF6EE 0%, #F4EDE1 56%, #E3EAF1 100%);
+}
+
+.royal-page-stories {
+  background-image:
+    radial-gradient(circle at 14% 12%, rgba(220, 200, 173, 0.80) 0%, transparent 52%),
+    radial-gradient(circle at 88% 18%, rgba(181, 138, 69, 0.20) 0%, transparent 50%),
+    radial-gradient(circle at 48% 88%, rgba(121, 147, 172, 0.20) 0%, transparent 52%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(160deg, #FAF6EE 0%, #F4EDE1 52%, #EADBC7 100%);
+}
+
+.royal-page-graph {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(121, 147, 172, 0.26) 0%, transparent 52%),
+    radial-gradient(circle at 86% 20%, rgba(220, 200, 173, 0.65) 0%, transparent 50%),
+    radial-gradient(circle at 50% 86%, rgba(181, 138, 69, 0.16) 0%, transparent 52%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(160deg, #FAF6EE 0%, #F4EDE1 54%, #E6ECF2 100%);
+}
+
+.royal-page-lexicon {
+  background-image:
+    radial-gradient(circle at 14% 14%, rgba(220, 200, 173, 0.72) 0%, transparent 52%),
+    radial-gradient(circle at 88% 18%, rgba(181, 138, 69, 0.18) 0%, transparent 52%),
+    radial-gradient(circle at 48% 88%, rgba(121, 147, 172, 0.20) 0%, transparent 52%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(160deg, #FAF6EE 0%, #F4EDE1 52%, #EDE1CE 100%);
+}
+
+.royal-page-research,
+.royal-page-admin {
+  background-image:
+    radial-gradient(circle at 14% 14%, rgba(220, 200, 173, 0.70) 0%, transparent 52%),
+    radial-gradient(circle at 86% 18%, rgba(121, 147, 172, 0.24) 0%, transparent 52%),
+    radial-gradient(circle at 50% 88%, rgba(181, 138, 69, 0.16) 0%, transparent 52%),
+    radial-gradient(rgba(181, 138, 69, 0.10) 1px, transparent 0),
+    linear-gradient(160deg, #FAF6EE 0%, #F4EDE1 54%, #EAE0D0 100%);
+}
+
+/* Dark Mode Backgrounds: Deep Navy & French Blue with Gold & Champagne ambient glow */
+html[data-theme="dark"] .archival-paper,
+html[data-theme="dark"] .royal-page-home,
+html[data-theme="dark"] .royal-page-archive,
+html[data-theme="dark"] .royal-page-entry,
+html[data-theme="dark"] .royal-page-dynasties,
+html[data-theme="dark"] .royal-page-timemap,
+html[data-theme="dark"] .royal-page-stories,
+html[data-theme="dark"] .royal-page-graph,
+html[data-theme="dark"] .royal-page-lexicon,
+html[data-theme="dark"] .royal-page-research,
+html[data-theme="dark"] .royal-page-admin {
+  background-color: #162235;
+  background-image:
+    radial-gradient(circle at 12% 14%, rgba(121, 147, 172, 0.22) 0%, transparent 48%),
+    radial-gradient(circle at 88% 16%, rgba(181, 138, 69, 0.18) 0%, transparent 46%),
+    radial-gradient(circle at 75% 86%, rgba(34, 50, 75, 0.85) 0%, transparent 52%),
+    radial-gradient(rgba(220, 200, 173, 0.08) 1px, transparent 0),
+    linear-gradient(165deg, #141F31 0%, #1C2B42 52%, #22324B 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 26px 26px, 100% 100%;
+  background-attachment: fixed;
+}
+
+.royal-spectrum-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #DCC8AD 0%, #F4EDE1 25%, #7993AC 50%, #B58A45 75%, #22324B 100%);
+}
+
+.temple-arch-frame {
+  border-radius: 130px 130px 10px 10px;
+}
+
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.65rem;
+  margin-top: 0.25rem;
+  color: #B58A45;
+  font-weight: 600;
+}
+
+/* Leaflet map refinements matching Light & Dark Modes */
+.leaflet-container {
+  font-family: var(--font-serif) !important;
+  background: var(--vh-map-bg) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--vh-popup-bg) !important;
+  color: var(--vh-popup-text) !important;
+  border: 1px solid #B58A45 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 8px 24px rgba(22, 34, 53, 0.24) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--vh-popup-bg) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

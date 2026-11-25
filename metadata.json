@@ -1,0 +1,6 @@
+{
+  "name": "Virasat Hub",
+  "description": "Curated South Asian heritage archive, epigraphic monograph reader, interactive dynasty time map, knowledge graph, and AI-grounded historical research workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
